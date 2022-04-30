@@ -13,6 +13,7 @@ const App = () => {
     <div>
       <Header></Header>
       <Routes>
+        <Route path='/' element={<HomeMain></HomeMain>}></Route>
         <Route path='/home' element={<HomeMain></HomeMain>}></Route>
         <Route path='/vehicles' element={
           <RequireAuth>

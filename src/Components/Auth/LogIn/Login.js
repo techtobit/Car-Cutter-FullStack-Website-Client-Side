@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import GoogleIcon from '../../Assets/icons-google50.svg'
 
@@ -29,6 +29,14 @@ const Login = () => {
  const handelSignInWithGoogle = e => {
   e.preventDefault();
   signInWithGoogle();
+ }
+
+ //Controls User After login 
+ const location = useLocation();
+ const navigate = useNavigate();
+ if (user) {
+  console.log(user);
+  navigate('/vehicles')
  }
  return (
   <div className='grid justify-center'>
