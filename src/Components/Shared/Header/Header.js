@@ -3,24 +3,38 @@ import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init'
 import { signOut } from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import './Header.css';
+import SiteLogo from '../../Assets/logo3.svg';
+import CustomLink from './ActiveLink/CustomLink';
 const Header = () => {
  const [user] = useAuthState(auth);
  const handelSingOut = () => {
   signOut(auth)
  }
  return (
-  <div className='nav-section grid grid-cols-2 justify-center justify-items-center'>
-   <div className="nav-link font-bold flex justify-center">
-    <Link className='links p-4' to='/home'>Home</Link>
-    <Link className='links p-4' to='/vehicles'>Vehicles</Link>
-    <Link className='links p-4' to='/lifestyle'>Lifestyle</Link>
-    <Link className='links p-4' to='/blog'>Blog</Link>
+  <div className='nav-section grid grid-cols-3 py-2 justify-center justify-items-center items-center'>
+   <div className="nav-logo pr-20 flex justify-center">
+    <img src={SiteLogo} alt="" />
    </div>
-   <div className="nav-link font-bold flex justify-center">
+   <div className="nav-link font-medium flex items-center">
+    <CustomLink className='links' to='/home'>Home</CustomLink>
+    <CustomLink className='links' to='/inventory'>Inventory</CustomLink>
+    {/* <Link className='links p-4' to='/lifestyle'>Lifestyle</Link> */}
+    <CustomLink className='links' to='/blog'>Blog</CustomLink>
+
+   </div>
+   <div className="nav-link font-medium flex items-center">
     {user ?
-     <Link onClick={handelSingOut} className='links  p-4' to='/home'> SingOUt</Link>
+     <div className='nav-link flex items-center'>
+      <CustomLink className='links ' to='/logIn'>Items</CustomLink>
+      <CustomLink className='links' to='/logIn'>Manage</CustomLink>
+      <CustomLink className='links ' to='/AddNew'>Add</CustomLink>
+      <CustomLink style={{ color: 'white' }} onClick={handelSingOut} className='admin-btn px-3 py-1 font-medium rounded-full' to='/home'>LogOut</CustomLink>
+     </div>
      :
-     <Link className='links  p-4' to='/logIn'>Admin LogIn</Link>
+     <div className=''>
+      <Link className=' admin-btn px-3 py-1 font-medium rounded-full' to='/logIn'>LogIn</Link>
+     </div>
     }
 
    </div>
