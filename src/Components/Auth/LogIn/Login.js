@@ -25,7 +25,7 @@ const Login = () => {
  }
 
  //Login With google
- const [signInWithGoogle] = useSignInWithGoogle(auth);
+ const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
  const handelSignInWithGoogle = e => {
   e.preventDefault();
   signInWithGoogle();
@@ -34,9 +34,14 @@ const Login = () => {
  //Controls User After login 
  const location = useLocation();
  const navigate = useNavigate();
+ const from = location.state?.from?.pathname || '/'
+
+
  if (user) {
-  console.log(user);
-  navigate('/vehicles')
+  navigate(from, { replace: true })
+ }
+ if (googleUser) {
+  navigate(from, { replace: true })
  }
  return (
   <div className='grid justify-center'>
