@@ -1,14 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import LoadHomeCatagories from '../../Hooks/LoadHomeCatagories';
 
 
 const Inventory = () => {
   const { inventoryId } = useParams();
   const [item, setItem] = useState([]);
-  const [deleteItem, steDeleteItem] = useState([]);
 
+  //load data from database useing query
   useEffect(() => {
     const url = `http://localhost:5000/inventory/${inventoryId}`
     fetch(url)
@@ -25,7 +24,6 @@ const Inventory = () => {
       }/AddNew`)
   }
   const handelDeleteItem = i => {
-    console.log(i);
     const process = window.confirm(`Are Your Sure? Your are deleting ${item.courseName}`)
     if (process) {
       const url = `http://localhost:5000/inventory/${inventoryId}`

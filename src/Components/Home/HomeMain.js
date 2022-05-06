@@ -6,6 +6,7 @@ import '../../App.css'
 
 import GetHomeCatagories from './HomeInventory/GetHomeCatagories';
 import Services from './Services/Services';
+import ManageInventory from './ManageInventory/ManageInventory';
 
 const HomeMain = () => {
  return (
@@ -13,6 +14,7 @@ const HomeMain = () => {
    <HeroBanner></HeroBanner>
    <CarBrands></CarBrands>
    <GetHomeCatagories></GetHomeCatagories>
+   <ManageInventory></ManageInventory>
    <Services></Services>
 
   </div>

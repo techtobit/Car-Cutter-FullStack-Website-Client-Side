@@ -2,3 +2,11 @@
  width: 550px;
  height: 550px;
 }
+
+@media only screen and (max-width: 425px) {
+ .notFoundImg img {
+  padding: 5px;
+  width: 200px;
+  height: 180px;
+ }
+}

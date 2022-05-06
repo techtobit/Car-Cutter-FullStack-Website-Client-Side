@@ -2,9 +2,54 @@ import React from 'react';
 import LoadHomeCatagories from '../../Hooks/LoadHomeCatagories';
 import itemBanner from '../../Assets/HeroBanner/banner-testi.jpg'
 import './GetItems.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../../firebase.init'
+import ReloadAnimation from '../../Animation/ReloadAnimation';
 
 const GetItems = () => {
  const [catagories] = LoadHomeCatagories();
+ const [loading] = useAuthState(auth);
+ const navigate = useNavigate()
+
+ // add new items in database 
+ const handelAddItem = () => {
+  console.log('Add clicked');
+  navigate('/AddNew')
+ }
+
+
+ //delete items from database
+ const handelDeleteItem = i => {
+  const id = i
+  const process = window.confirm(`Are Your Sure? Your are deleting`)
+  if (process) {
+   const url = `http://localhost:5000/inventory/${id}`
+   console.log(url);
+   axios.delete(url, i)
+    .then(response => console.log(response))
+   toast('Deleted Successfully')
+   window.location.reload();
+   if (loading) {
+    <ReloadAnimation></ReloadAnimation>
+   }
+
+  }
+  else {
+   toast.error('Error !', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+   });
+  }
+ }
+
  return (
   <div className=''>
    <div style={{
@@ -51,9 +96,9 @@ const GetItems = () => {
          <td>$ {items.price}</td>
          <td >
 
-          <button className='bg-green-600 text-white font-semibold px-3 py-1 mx-1 hover:bg-green-700 rounded'>Add</button>
+          <button onClick={handelAddItem} className='bg-green-600 text-white font-semibold px-3 py-1 mx-1 hover:bg-green-700 rounded'>Add</button>
           <button className='bg-blue-600 text-white font-semibold px-3 py-1 mx-1 hover:bg-blue-700 rounded'>Update</button>
-          <button className='bg-red-500 text-white font-semibold px-3 py-1 mx-1 hover:bg-red-600 rounded'>Delete</button>
+          <button onClick={() => handelDeleteItem(items._id)} className='bg-red-500 text-white font-semibold px-3 py-1 mx-1 hover:bg-red-600 rounded'>Delete</button>
          </td>
 
 
