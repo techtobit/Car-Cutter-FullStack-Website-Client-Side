@@ -1,0 +1,10 @@
+.car-section {}
+
+.carData img {
+ width: 450px;
+ height: 430px;
+}
+
+.manage-bnt button {
+ margin: 5px;
+}
