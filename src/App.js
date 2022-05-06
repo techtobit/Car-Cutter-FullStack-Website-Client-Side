@@ -13,6 +13,9 @@ import Lifestyle from './Components/Page/Lifestyle/Lifestyle';
 import Blog from './Components/Page/Blog/Blog';
 import Inventory from './Components/Page/Inventory/Inventory';
 import AddItems from './Components/Page/AddItems/AddItems';
+import Manage from './Components/Page/Manage/Manage';
+import GetItems from './Components/Page/Items/GetItems';
+import Items from './Components/Page/Items/Items';
 
 
 const App = () => {
@@ -41,6 +44,17 @@ const App = () => {
         <Route path='/AddNew' element={
           <RequireAuth>
             <AddItems></AddItems>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manage' element={
+          <RequireAuth>
+            <Manage></Manage>
+          </RequireAuth>
+        }></Route>
+        <Route path='/items' element={
+          <RequireAuth>
+            <GetItems></GetItems>
+            {/* <Items></Items> */}
           </RequireAuth>
         }></Route>
         {/* <Route path='/lifestyle' element={<Lifestyle></Lifestyle>}></Route> */}

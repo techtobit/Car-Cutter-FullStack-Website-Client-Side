@@ -1,9 +1,17 @@
 import React from 'react';
+import Javascript from './Javscript/Javascript';
+import JWT from './JWT/JWT';
+import NodeJsMongoDb from './NodeJsMongoDb/NodeJsMongoDb';
+import SQLvsNoSQL from './SQLvsNoSQL/SQLvsNoSQL';
+
 
 const Blog = () => {
  return (
-  <div>
-   <h1 className='text-5xl text-center' >This page is Blog</h1>
+  <div className=''>
+   <Javascript></Javascript>
+   <NodeJsMongoDb></NodeJsMongoDb>
+   <SQLvsNoSQL></SQLvsNoSQL>
+   <JWT></JWT>
   </div>
  );
 };

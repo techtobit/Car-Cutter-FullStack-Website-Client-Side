@@ -26,8 +26,8 @@ const Header = () => {
    <div className="nav-link font-medium flex items-center">
     {user ?
      <div className='nav-link flex items-center'>
-      <CustomLink className='links ' to='/logIn'>Items</CustomLink>
-      <CustomLink className='links' to='/logIn'>Manage</CustomLink>
+      <CustomLink className='links ' to='/items'>Items</CustomLink>
+      <CustomLink className='links' to='/manage'>Manage</CustomLink>
       <CustomLink className='links ' to='/AddNew'>Add</CustomLink>
       <CustomLink style={{ color: 'white' }} onClick={handelSingOut} className='admin-btn px-3 py-1 font-medium rounded-full' to='/home'>LogOut</CustomLink>
      </div>
