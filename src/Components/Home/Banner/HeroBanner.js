@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const HeroBanner = () => {
+
   const [user] = useAuthState(auth)
   const navigate = useNavigate();
   const handelHeroTry = () => {
