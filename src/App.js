@@ -15,7 +15,8 @@ import Inventory from './Components/Page/Inventory/Inventory';
 import AddItems from './Components/Page/AddItems/AddItems';
 import Manage from './Components/Page/Manage/Manage';
 import GetItems from './Components/Page/Items/GetItems';
-import Items from './Components/Page/Items/Items';
+import NotFound from './Components/Page/404/NotFound';
+
 
 
 const App = () => {
@@ -54,13 +55,13 @@ const App = () => {
         <Route path='/items' element={
           <RequireAuth>
             <GetItems></GetItems>
-            {/* <Items></Items> */}
           </RequireAuth>
         }></Route>
         {/* <Route path='/lifestyle' element={<Lifestyle></Lifestyle>}></Route> */}
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/logIn' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>

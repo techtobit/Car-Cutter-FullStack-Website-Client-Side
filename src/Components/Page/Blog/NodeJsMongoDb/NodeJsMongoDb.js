@@ -8,7 +8,7 @@ const NodeJsMongoDb = () => {
    <div className="blog grid justify-center  border-2 p-5 shadow-lg rounded-lg">
     <img src={NodeJs} alt="" />
     <div className="blog-data text-center ">
-     <h3 className='text-2xl py-5'>What different between JavaScript and Node.js?</h3>
+     <h3 className='text-2xl py-5'> When should I use nodejs and mongodb?</h3>
      <p>
       Node js and MongoDb both are different technology.Both use for different purpose.
      </p>

@@ -1,0 +1,26 @@
+thead {
+ background-color: #307dff;
+ color: #fff;
+
+}
+
+thead th {
+ padding: 15px;
+ margin: 15px;
+}
+
+tr {
+ border: 1px solid #307dff;
+ border-radius: 5px;
+ margin: 5px;
+ padding: 5px;
+}
+
+td {
+ padding: 10px;
+
+}
+
+button {
+ /* margin: 5px; */
+}
