@@ -16,6 +16,7 @@ import Manage from './Components/Page/Manage/Manage';
 import GetItems from './Components/Page/Items/GetItems';
 import NotFound from './Components/Page/404/NotFound';
 import UpdatePassword from './Components/Auth/LogIn/UpdatePassword.js';
+import GetManage from './Components/Page/Manage/GetManage';
 
 
 
@@ -49,7 +50,7 @@ const App = () => {
         }></Route>
         <Route path='/manage' element={
           <RequireAuth>
-            <Manage></Manage>
+            <GetManage></GetManage>
           </RequireAuth>
         }></Route>
         <Route path='/items' element={

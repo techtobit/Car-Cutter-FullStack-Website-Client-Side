@@ -26,3 +26,5 @@
 8. `Tailwind`
 9. `Bootstrap Table` 
 10 `FontAwesome`
+11 `Environment Variable`
+12 `Axios`
