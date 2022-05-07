@@ -8,3 +8,16 @@
 .manage-bnt button {
  margin: 5px;
 }
+
+/* mobile */
+@media only screen and (max-width: 425px) {
+ .carData img {
+  width: 250px;
+  height: 230px;
+ }
+
+ .manage-bnt button {
+  margin: 2px;
+ }
+
+}

@@ -9,13 +9,13 @@ import HomeMain from './Components/Home/HomeMain';
 import Register from './Components/Auth/Register/Register';
 import Vehicles from './Components/Page/Vehicles/Vehicles'
 import RequireAuth from './Components/Auth/ProtectedRoute/RequireAuth';
-import Lifestyle from './Components/Page/Lifestyle/Lifestyle';
 import Blog from './Components/Page/Blog/Blog';
 import Inventory from './Components/Page/Inventory/Inventory';
 import AddItems from './Components/Page/AddItems/AddItems';
 import Manage from './Components/Page/Manage/Manage';
 import GetItems from './Components/Page/Items/GetItems';
 import NotFound from './Components/Page/404/NotFound';
+import UpdatePassword from './Components/Auth/LogIn/UpdatePassword.js';
 
 
 
@@ -57,7 +57,9 @@ const App = () => {
             <GetItems></GetItems>
           </RequireAuth>
         }></Route>
-        {/* <Route path='/lifestyle' element={<Lifestyle></Lifestyle>}></Route> */}
+        <Route path='/updatePassword' element={
+          <UpdatePassword></UpdatePassword>
+        }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/logIn' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>

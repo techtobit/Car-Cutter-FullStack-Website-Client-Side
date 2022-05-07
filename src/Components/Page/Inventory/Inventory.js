@@ -36,7 +36,7 @@ const Inventory = () => {
     const updateQuantity = { quantity }
     const process = window.confirm(`Are Your Sure? Your are Updating ${item.courseName}`)
     const url = `http://localhost:5000/inventory/${inventoryId}`
-    if (process) {
+    if (process && quantity > 0) {
       axios.put(url, updateQuantity)
         .then(response => {
           console.log('update', response)
@@ -59,18 +59,30 @@ const Inventory = () => {
   }
 
   // Discrease Quantity by one when click on handelDelever
-  const [delivered, setDelivered] = useState([]);
-
   const handelDeleverd = quantity => {
     const deleverd = quantity - 1
-    const update = { quantity: deleverd }
-    console.log(update);
-    const url = `http://localhost:5000/inventory/${inventoryId}`
-    axios.put(url, update)
-      .then(response => {
-        console.log('update', response)
-        toast('✔ Quantity Successfully Updated')
-      })
+    let update;
+    update = { quantity: deleverd }
+
+    if (quantity > 0) {
+      const url = `http://localhost:5000/inventory/${inventoryId}`
+      axios.put(url, update)
+        .then(response => {
+          console.log('update', response)
+          toast(`✔ One Product Delivered ${response.statusText}`)
+        })
+    }
+    else {
+      toast.error('‼ Sold Out', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
 
@@ -89,15 +101,15 @@ const Inventory = () => {
           <span className='service-span'>Futures & Information</span></h2>
       </div>
       <div className='car-section grid    p-10'>
-        <div className="carData grid grid-cols-2  items-center justify-items-center border-l-4  rounded-lg border-blue-400 bg-white shadow-blue-500/50 shadow-sm shadow-cyan-500/50">
+        <div className="carData md:grid grid-cols-2  items-center justify-items-center border-l-4  rounded-lg border-blue-400 bg-white shadow-blue-500/50 shadow-sm shadow-cyan-500/50">
           <div className="carImg ">
             <img src={item.img} alt="" />
           </div>
           <div className="carInfo grid ">
             <div className="carDetails grid justify-items-start pt-5">
-              <h3 className='text-2xl font-semibold'> <span className='text-black'>Product : </span> {item.carName}</h3>
-              <h3 className='text-xl font-medium'><span className='text-black'>Price : </span>$ {item.price}</h3>
-              <h3 className='text-xl font-medium text-green-600'><span className='text-black'>In Stock : </span> {item.quantity}</h3>
+              <h3 className='md:text-2xl font-semibold'> <span className='text-black'>Product : </span> {item.carName}</h3>
+              <h3 className='md:text-xl font-medium'><span className='text-black'>Price : </span>$ {item.price}</h3>
+              <h3 className='md:text-xl font-medium text-green-600'><span className='text-black'>In Stock : </span> {item.quantity}</h3>
               <table>
                 <tr className='flex '>
                   <td className='font-medium'>Brand : {item.brand}</td>
@@ -128,13 +140,13 @@ const Inventory = () => {
                 <input type="submit" value='Increase Stock' />
               </form>
               <div className="manage-bnt">
-                <button onClick={() => handelDeleverd(item.quantity)} className="p-2 bg-yellow-400 rounded-md text-black font-semibold">
+                <button onClick={() => handelDeleverd(item.quantity)} className="p-2 bg-yellow-400 hover:bg-yellow-300 rounded-md text-black font-semibold">
                   <FontAwesomeIcon className='pr-2' icon={faTruck}></FontAwesomeIcon>
                   Delivered</button>
-                <button onClick={handelAddNewItem} className="p-2 bg-green-600 rounded-md text-white font-semibold">
+                <button onClick={handelAddNewItem} className="p-2 bg-green-600 rounded-md text-white font-semibold hover:bg-green-700">
                   <FontAwesomeIcon className='pr-2' icon={faPlus}></FontAwesomeIcon>
                   Add New</button>
-                <Link to='/manage' className="p-2 bg-orange-600 rounded-md text-white font-semibold">
+                <Link to='/manage' className="p-2 bg-orange-600 hover:bg-orange-700 rounded-md text-white font-semibold">
                   <FontAwesomeIcon className='pr-2' icon={faListCheck}></FontAwesomeIcon>
                   Manage</Link>
               </div>
