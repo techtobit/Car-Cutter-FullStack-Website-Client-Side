@@ -5,11 +5,12 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import InventoryHeroBanner from '../../Assets/HeroBanner/hero-banner.jpg'
 import './Inventory.css'
 import { faClock, faLocationDot, faTruck, faPlus, faListCheck } from '@fortawesome/free-solid-svg-icons';
-
+import { toast } from 'react-toastify';
 
 const Inventory = () => {
   const { inventoryId } = useParams();
   const [item, setItem] = useState([]);
+
 
   //load data from database useing query
   useEffect(() => {
@@ -27,18 +28,51 @@ const Inventory = () => {
     navigate(`/inventory/${inventoryId
       }/AddNew`)
   }
-  const handelDeleteItem = i => {
-    const process = window.confirm(`Are Your Sure? Your are deleting ${item.courseName}`)
+
+  //Update Items Quantity
+  const handleIncrease = e => {
+    e.preventDefault();
+    const quantity = e.target.quantity.value
+    const updateQuantity = { quantity }
+    const process = window.confirm(`Are Your Sure? Your are Updating ${item.courseName}`)
+    const url = `http://localhost:5000/inventory/${inventoryId}`
     if (process) {
-      const url = `http://localhost:5000/inventory/${inventoryId}`
-      axios.delete(url, i)
-        .then(response => console.log(response))
-      navigate('/inventory')
+      axios.put(url, updateQuantity)
+        .then(response => {
+          console.log('update', response)
+          e.target.reset();
+          toast('✔ Quantity Successfully Updated')
+        })
+    }
+    else {
+      toast.error('‼ Updating Failed!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
 
-
-
   }
+
+  // Discrease Quantity by one when click on handelDelever
+  const [delivered, setDelivered] = useState([]);
+
+  const handelDeleverd = quantity => {
+    const deleverd = quantity - 1
+    const update = { quantity: deleverd }
+    console.log(update);
+    const url = `http://localhost:5000/inventory/${inventoryId}`
+    axios.put(url, update)
+      .then(response => {
+        console.log('update', response)
+        toast('✔ Quantity Successfully Updated')
+      })
+  }
+
 
   return (
     <div className='text-center grid '>
@@ -89,12 +123,12 @@ const Inventory = () => {
             </div>
 
             <div className="btns  pb-5">
-              <div className="reStock-btn">
-                <input type="number" name='quantity' />
-                <input type="button" value='Increase Stock' />
-              </div>
+              <form className="reStock-btn" onSubmit={handleIncrease}>
+                <input type="number" name='quantity' required />
+                <input type="submit" value='Increase Stock' />
+              </form>
               <div className="manage-bnt">
-                <button className="p-2 bg-yellow-400 rounded-md text-black font-semibold">
+                <button onClick={() => handelDeleverd(item.quantity)} className="p-2 bg-yellow-400 rounded-md text-black font-semibold">
                   <FontAwesomeIcon className='pr-2' icon={faTruck}></FontAwesomeIcon>
                   Delivered</button>
                 <button onClick={handelAddNewItem} className="p-2 bg-green-600 rounded-md text-white font-semibold">
