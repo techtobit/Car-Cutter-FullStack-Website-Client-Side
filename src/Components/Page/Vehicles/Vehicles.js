@@ -14,14 +14,14 @@ const Vehicles = () => {
   const [pageSize, setPageSize] = useState(10)
   const [catagories, setCatagories] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/inventory?page=${page}&pageSize=${pageSize}`)
+    fetch(`https://dry-caverns-12353.herokuapp.com/inventory?page=${page}&pageSize=${pageSize}`)
       .then(res => res.json())
       .then(data => setCatagories(data))
   }, [page, pageSize])
 
   //page data load
   useEffect(() => {
-    fetch('http://localhost:5000/carsPagination')
+    fetch('https://dry-caverns-12353.herokuapp.com/carsPagination')
       .then(res => res.json())
       .then(data => {
         const count = data.count;

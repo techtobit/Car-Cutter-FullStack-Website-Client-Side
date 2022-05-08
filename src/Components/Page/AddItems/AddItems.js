@@ -17,7 +17,7 @@ const AddItems = () => {
   // add singel product into database 
   const onSubmit = data => {
     if (data) {
-      const url = `http://localhost:5000/inventory`
+      const url = `https://dry-caverns-12353.herokuapp.com/inventory`
       axios.post(url, data).then(response => console.log(response)
       )
       toast("New Product Add Successfully")

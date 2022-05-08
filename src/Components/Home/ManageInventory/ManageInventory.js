@@ -22,7 +22,7 @@ const ManageInventory = () => {
             Please check and try again!
           </p>
         </div>
-        <div>
+        <div className='p-3'>
           <Link to='/manage' className='px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded'>
             <FontAwesomeIcon icon={faBoxesStacked} className='pr-2'></FontAwesomeIcon>
             Manage</Link>

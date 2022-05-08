@@ -13,7 +13,7 @@ const Register = () => {
   const navigate = useNavigate()
 
   // singUp with email password 
-  const [createUserWithEmailAndPassword, user, SingUPError,
+  const [createUserWithEmailAndPassword, user, loading, SingUPError,
   ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   //singUp with google 
@@ -88,6 +88,9 @@ const Register = () => {
               <br />
               <input onBlur={handelConfirmPassword} type='password' required className='w-full border-solid border-blue-500 border py-2 px-4 rounded text-gray-700' placeholder='Confirm'></input>
             </div>
+            {
+              loading && <p>loading...</p>
+            }
             <div className="from-input">
               <input type='submit' value='Register' className='w-full border-solid text-white font-bold bg-blue-500 border py-2 px-4 rounded hover:bg-blue-600' placeholder='password'></input>
             </div>

@@ -7,6 +7,9 @@ import GoogleIcon from '../../Assets/icons-google50.svg'
 import './LogIn.css'
 import googleBrand from '../../Assets/icons/google-brands.svg'
 import logInBlob from '../../Assets/Others/logIn.png'
+import { toast } from 'react-toastify';
+import { async } from '@firebase/util';
+import axios from 'axios';
 
 const Login = () => {
  //login with email password 
@@ -25,12 +28,29 @@ const Login = () => {
  const handelPassword = e => {
   setPassword(e.target.value);
  }
-
+ 
  // login method send data to auth 
- const handelLogInWithEmail = e => {
+ const handelLogInWithEmail = async e => {
   e.preventDefault();
-  signInWithEmailAndPassword(email, password)
+  await signInWithEmailAndPassword(email, password)
+  const { data } = await axios.post('https://dry-caverns-12353.herokuapp.com/login', { email });
+  localStorage.setItem('AccessToken', data)
+  navigate(from, { replace: true })
  }
+
+ // if email password not match 
+ if (error) {
+  toast.error(`Email Password Not Matched `, {
+   position: "top-right",
+   autoClose: 5000,
+   hideProgressBar: false,
+   closeOnClick: true,
+   pauseOnHover: true,
+   draggable: true,
+   progress: undefined,
+  });
+ }
+
 
  //reset by email verification
 
@@ -49,7 +69,7 @@ const Login = () => {
 
 
  if (user) {
-  navigate(from, { replace: true })
+
  }
  if (googleUser) {
   navigate(from, { replace: true })
@@ -73,8 +93,11 @@ const Login = () => {
        <br />
        <input onBlur={handelPassword} type='password' required className='w-full border-solid border-blue-500 border py-2 px-4 rounded text-gray-700' placeholder='password'></input>
       </div>
+      {
+       loading && <p>loading...</p>
+      }
       <div className="from-input">
-       <input type='submit' value='LogIn' className='w-full border-solid text-white font-bold bg-blue-500 border py-2 px-4 rounded hover:bg-blue-600' placeholder='password'></input>
+       <input type='submit' value='LogIn' className='w-full border-solid text-white font-bold bg-blue-500 border py-2 px-4 rounded hover:bg-blue-600'></input>
       </div>
       <div className="logIn-togol">
        <p>Forget Password? <Link to='/updatePassword' className='text-blue-500 hover:text-blue-600 underline'>reset password</Link></p>

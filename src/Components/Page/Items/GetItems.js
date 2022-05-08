@@ -26,7 +26,7 @@ const GetItems = () => {
     const id = i
     const process = window.confirm(`Are Your Sure? Your are deleting`)
     if (process) {
-      const url = `http://localhost:5000/inventory/${id}`
+      const url = `https://dry-caverns-12353.herokuapp.com/inventory/${id}`
       console.log(url);
       axios.delete(url, i)
         .then(response => console.log(response))
@@ -65,7 +65,7 @@ const GetItems = () => {
           <span className='service-span'>Warehouse & Inventory</span></h2>
       </div>
 
-      <div className="displayItems flex   py-10">
+      <div className="displayItems grid justify-center py-10 overflow-auto ">
         <table class="Items-table table table-bordered border-primary ">
           <thead>
             <tr>
@@ -97,7 +97,6 @@ const GetItems = () => {
                   <td >
 
                     <button onClick={handelAddItem} className='bg-green-600 text-white font-semibold px-3 py-1 mx-1 hover:bg-green-700 rounded'>Add</button>
-                    <button className='bg-blue-600 text-white font-semibold px-3 py-1 mx-1 hover:bg-blue-700 rounded'>Update</button>
                     <button onClick={() => handelDeleteItem(items._id)} className='bg-red-500 text-white font-semibold px-3 py-1 mx-1 hover:bg-red-600 rounded'>Delete</button>
                   </td>
 
