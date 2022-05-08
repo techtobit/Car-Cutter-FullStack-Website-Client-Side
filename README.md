@@ -38,3 +38,21 @@
 10 `FontAwesome`
 11 `Environment Variable`
 12 `Axios`
+
+
+~~~Home banner Video not playing on Firebase~~~~ 
+**IN Netlify its ok**
+
+### Site Overview
+**Pc/Desktop**
+![Home](https://i.ibb.co/2kQb23J/pcHome.png)
+![Invertory](https://i.ibb.co/XSDZRnT/pc-Inventory.png)
+
+
+**Resposive Mobile**
+![mobile-Home](https://i.ibb.co/s2d5PB5/mobile-Home.png)
+![mobile-Invertory](https://i.ibb.co/yBWc44Y/mobile-Invertory.png)
+
+
+
+
