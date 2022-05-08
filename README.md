@@ -1,6 +1,16 @@
 # CarCutter  Car Warehouse Inventory and Dealerships
 
 ## Important Links 
+ #### Assignment Link
+
+ - [Client Side Repo](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-techtobit)
+
+ - [Server Side Repo](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-techtobit)
+
+
+ 1. Live Site on [FireBase](https://warehouse-2e28c.web.app/)
+ 2.  Live Site on [Netlify](https://musing-edison-6e5b4e.netlify.app/)
+ 3. Server Site host into [Heroku](https://dry-caverns-12353.herokuapp.com/inventory)
  #### Stackoverflow
  1. QNA : [What different between nodejs and mongodb?](https://stackoverflow.com/questions/72143846/what-different-between-nodejs-and-mongodb?noredirect=1#comment127469972_72143846)
  1. QNA : [What different between SQL and NoSQL?](https://stackoverflow.com/questions/72145555/what-is-the-core-differnt-between-nosql-vs-sql)

@@ -17,6 +17,7 @@ import GetItems from './Components/Page/Items/GetItems';
 import NotFound from './Components/Page/404/NotFound';
 import UpdatePassword from './Components/Auth/LogIn/UpdatePassword.js';
 import GetManage from './Components/Page/Manage/GetManage';
+import ContactUs from './Components/Page/ContactUs/ContactUs';
 
 
 
@@ -58,6 +59,7 @@ const App = () => {
             <GetItems></GetItems>
           </RequireAuth>
         }></Route>
+        <Route path='/contactUs' element={<ContactUs></ContactUs>}></Route>
         <Route path='/updatePassword' element={
           <UpdatePassword></UpdatePassword>
         }></Route>
