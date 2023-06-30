@@ -1,0 +1,43 @@
+
+
+.addItem-form {
+ display: grid;
+ justify-content: center;
+}
+
+input {
+ border: 1px solid #307dff;
+ padding: 5px;
+ margin: 10px;
+ border-radius: 5px;
+
+}
+
+input:focus {
+ outline: none !important;
+ border-color: #719ECE;
+ box-shadow: 0 0 10px #719ECE;
+}
+
+textarea {
+ border: 1px solid #307dff;
+ padding: 5px;
+ margin: 10px;
+ border-radius: 5px;
+}
+
+textarea:focus {
+ outline: none !important;
+ border-color: #719ECE;
+ box-shadow: 0 0 10px #719ECE;
+}
+
+.addProduct-btn {
+ background-color: #307dff;
+ color: #ffff;
+}
+
+.back-btn {
+ color: #307dff;
+ background-color: #ffff;
+}

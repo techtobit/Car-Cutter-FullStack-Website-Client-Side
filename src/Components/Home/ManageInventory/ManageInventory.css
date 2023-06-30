@@ -1,0 +1,27 @@
+.manageImg img {
+ width: 520px;
+ height: 550px;
+}
+
+/* mobile */
+@media only screen and (max-width: 425px) {
+ .manageImg img {
+  width: 250px;
+  height: 250px;
+ }
+
+ .manageInfo {
+  justify-content: center;
+  justify-items: center;
+ }
+
+ .manageInfo h2 {
+  font-size: 20px;
+
+ }
+
+ .manageInfo p {
+  font-size: 10px;
+  text-align: center;
+ }
+}
