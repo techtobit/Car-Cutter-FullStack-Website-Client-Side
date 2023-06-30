@@ -26,7 +26,7 @@ const GetItems = () => {
     const id = i
     const process = window.confirm(`Are Your Sure? Your are deleting`)
     if (process) {
-      const url = `https://dry-caverns-12353.herokuapp.com/inventory/${id}`
+      const url = `https://car-cutter.onrender.com/inventory/${id}`
       console.log(url);
       axios.delete(url, i)
         .then(response => console.log(response))

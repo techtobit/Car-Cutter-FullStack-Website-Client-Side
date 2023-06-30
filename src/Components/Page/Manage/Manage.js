@@ -18,7 +18,7 @@ const Manage = ({ item }) => {
 
 
   const handelManageDelete = i => {
-    const url = `https://dry-caverns-12353.herokuapp.com/inventory/${_id}`
+    const url = `https://car-cutter.onrender.com/inventory/${_id}`
 
     axios.delete(url, i)
       .then(response => {

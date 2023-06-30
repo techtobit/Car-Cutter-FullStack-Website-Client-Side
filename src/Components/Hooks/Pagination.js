@@ -4,7 +4,7 @@ const Pagination = () => {
   const [pageCount, setPageCount] = useState(0)
 
   useEffect(() => {
-    fetch('https://dry-caverns-12353.herokuapp.com/carsPagination')
+    fetch('https://car-cutter.onrender.com/carsPagination')
       .then(res => res.json())
       .then(data => {
         const count = data.count;

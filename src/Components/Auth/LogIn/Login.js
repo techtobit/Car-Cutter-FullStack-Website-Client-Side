@@ -33,7 +33,7 @@ const Login = () => {
  const handelLogInWithEmail = async e => {
   e.preventDefault();
   await signInWithEmailAndPassword(email, password)
-  const { data } = await axios.post('https://dry-caverns-12353.herokuapp.com/login', { email });
+  const { data } = await axios.post('https://car-cutter.onrender.com/login', { email });
   localStorage.setItem('AccessToken', data)
   navigate(from, { replace: true })
  }
