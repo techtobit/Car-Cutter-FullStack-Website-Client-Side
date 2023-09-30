@@ -14,7 +14,7 @@ const Inventory = () => {
 
   //load data from database useing query
   useEffect(() => {
-    const url = `https://car-cutter.onrender.com/inventory/${inventoryId}`
+    const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory/${inventoryId}`
     fetch(url)
       .then(res => res.json())
       .then(data => setItem(data))
@@ -35,7 +35,7 @@ const Inventory = () => {
     const quantity = e.target.quantity.value
     const updateQuantity = { quantity }
     const process = window.confirm(`Are Your Sure? Your are Updating ${item.courseName}`)
-    const url = `https://car-cutter.onrender.com/inventory/${inventoryId}`
+    const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory/${inventoryId}`
     if (process && quantity > 0) {
       axios.put(url, updateQuantity)
         .then(response => {
@@ -65,7 +65,7 @@ const Inventory = () => {
     update = { quantity: deleverd }
 
     if (quantity > 0) {
-      const url = `https://car-cutter.onrender.com/inventory/${inventoryId}`
+      const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory/${inventoryId}`
       axios.put(url, update)
         .then(response => {
           console.log('update', response)

@@ -18,7 +18,7 @@ const Manage = ({ item }) => {
 
 
   const handelManageDelete = i => {
-    const url = `https://car-cutter.onrender.com/inventory/${_id}`
+    const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory/${_id}`
 
     axios.delete(url, i)
       .then(response => {
