@@ -14,14 +14,14 @@ const Vehicles = () => {
   const [pageSize, setPageSize] = useState(10)
   const [catagories, setCatagories] = useState([]);
   useEffect(() => {
-    fetch(`https://car-cutter-fullstack-website-serverside.onrender.com/inventory?page=${page}&pageSize=${pageSize}`)
+    fetch(`https://car-cutter-full-stack-website-server-side.vercel.app/inventory?page=${page}&pageSize=${pageSize}`)
       .then(res => res.json())
       .then(data => setCatagories(data))
   }, [page, pageSize])
 
   //page data load
   useEffect(() => {
-    fetch('https://car-cutter-fullstack-website-serverside.onrender.com/carsPagination')
+    fetch('https://car-cutter-full-stack-website-server-side.vercel.app/carsPagination')
       .then(res => res.json())
       .then(data => {
         const count = data.count;

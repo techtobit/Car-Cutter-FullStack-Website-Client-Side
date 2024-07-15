@@ -4,7 +4,7 @@ const Pagination = () => {
   const [pageCount, setPageCount] = useState(0)
 
   useEffect(() => {
-    fetch('https://car-cutter-fullstack-website-serverside.onrender.com/carsPagination')
+    fetch('https://car-cutter-full-stack-website-server-side.vercel.app/carsPagination')
       .then(res => res.json())
       .then(data => {
         const count = data.count;

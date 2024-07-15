@@ -33,7 +33,7 @@ const Login = () => {
  const handelLogInWithEmail = async e => {
   e.preventDefault();
   await signInWithEmailAndPassword(email, password)
-  const { data } = await axios.post('https://car-cutter-fullstack-website-serverside.onrender.com/login', { email });
+  const { data } = await axios.post('https://car-cutter-full-stack-website-server-side.vercel.app/login', { email });
   localStorage.setItem('AccessToken', data)
   navigate(from, { replace: true })
  }

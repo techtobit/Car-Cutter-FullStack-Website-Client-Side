@@ -26,7 +26,7 @@ const GetItems = () => {
     const id = i
     const process = window.confirm(`Are Your Sure? Your are deleting`)
     if (process) {
-      const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory/${id}`
+      const url = `https://car-cutter-full-stack-website-server-side.vercel.app/inventory/${id}`
       console.log(url);
       axios.delete(url, i)
         .then(response => console.log(response))

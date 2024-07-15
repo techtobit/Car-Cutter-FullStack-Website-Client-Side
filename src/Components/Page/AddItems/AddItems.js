@@ -17,7 +17,7 @@ const AddItems = () => {
   // add singel product into database 
   const onSubmit = data => {
     if (data) {
-      const url = `https://car-cutter-fullstack-website-serverside.onrender.com/inventory`
+      const url = `https://car-cutter-full-stack-website-server-side.vercel.app/inventory`
       axios.post(url, data).then(response => console.log(response)
       )
       toast("New Product Add Successfully")
