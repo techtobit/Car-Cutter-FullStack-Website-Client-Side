@@ -9,5 +9,4 @@ const LoadHomeCatagories = () => {
   }, [])
   return [catagories, setCatagories]
 };
-
 export default LoadHomeCatagories;
